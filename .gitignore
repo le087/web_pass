@@ -1,0 +1,11 @@
+env/
+*~
++\#*
++\.\#*
+*.swp
++*.py[co]
++*.sqlite
++settings.py
+.ropeproject/
+web_pass/settings.py
+webpassapp/migrations/__init__.pyc

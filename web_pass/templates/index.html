@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <title>le087's blog - {{ current_page }}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="/static/bootstrap.css" rel="stylesheet">
+    <link href="/static/bootstrap-responsive.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row-fluid">
+	<div class="span12">
+	  <div class="navbar">
+	    <div class="navbar-inner">
+	      <a class="brand" href="http://pass.le087.ru/">GeNeRAte_PAssW0rD</a>
+	    </div>
+	  </div>
+	</div>
+      </div>
+      <div class="span3">
+	<h4>Параметры генаратора: </h4><br />
+	<form method="POST" id="" action="">
+	  {{ radioform.as_table }}<br /><br />
+	  <input class="btn btn-info" type="submit" method="POST" name="generate" value="Сгенерировать пароли!" /><br /><br />	  
+	</form>
+	<h4>Я тут нагенерировал: </h4>
+	<table class="table">
+	{% for i in passwords %}
+	  <tr>
+	    <td>{{ forloop.counter }}:</td><td>{{ i }}</td>
+	  </tr>
+	{% endfor %}
+	</table>
+
+	<h4>Всего создано паролей: {{ counter }}</h4>
+      </div>
+      <div class="span8">
+	<h4>Немного информации о Вас:</h4>
+	<table class="table">
+	  <tr>
+	    <td>Ваш браузер:</td><td>{{ browser }}</td>
+	  </tr>
+	  <tr>
+	    <td><h2>Ваш IP-адрес:</h2></td><td><h2>{{ ip }}</h2></td>
+	  </tr>
+	</table>
+      </div>
+    </div>
+  <div class="container">
+    <hr /><br />
+    <div class="span5">
+    </div>
+    <div class="span2">
+      <p class="pull-right muted"><a href="http://le087.ru/">© le087's blog 2011-2012</a></p>
+    </div>
+    <div class="span5">
+    </div>
+  </div>
+  </body> 
+</html>
