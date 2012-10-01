@@ -41,7 +41,7 @@ def main_page(request):
         radioform = SetPassForm(request.POST)
         radioform.is_valid()
         num_passwords = int(radioform.cleaned_data['num_pass'])
-        passwords = gen_passwords(os.path.dirname(__file__) + '/dicts/italian',
+        passwords = gen_passwords(os.path.dirname(__file__) + radioform.cleaned_data['language'],
                                   num=num_passwords,
                                   lenth=int(radioform.cleaned_data['lenth_pass']),
                                   upper=radioform.cleaned_data['upper_pass'],
@@ -49,7 +49,7 @@ def main_page(request):
     else:
         passwords = gen_passwords(os.path.dirname(__file__) + '/dicts/italian')
         num_passwords = 10
-        radioform = SetPassForm({'num_pass':'10', 'lenth_pass':'10'})
+        radioform = SetPassForm({'num_pass':'10', 'lenth_pass':'10', 'language':'italian'})
     count = Counter()
     counter = count.get_counter(num_passwords)
     return render_to_response('index.html', {
