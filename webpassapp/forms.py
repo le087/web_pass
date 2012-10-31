@@ -4,7 +4,10 @@ from django import forms
 
 NUM_VARIANTS = [(i+1, i+1) for i in range(20)]
 LENTH_PASS = [(i+1, i+1) for i in range(20)]
-LANG = [('italian', 'Итальянский'), ('french','Французский'), ('japanese', 'Японский')]
+LANG = [('italian', 'Итальянский'), 
+        ('french','Французский'), 
+        ('japanese', 'Японский'), 
+        ('russian','Русский')]
 
 class SetPassForm(forms.Form):
     language = forms.ChoiceField(label='Язык пароля', widget=forms.Select, choices=LANG)
