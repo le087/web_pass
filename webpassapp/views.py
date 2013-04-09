@@ -6,6 +6,7 @@ from models import Counter
 from forms import SetPassForm
 import genpassword, os, random
 
+
 def gen_passwords(dictionary_file, num=10, lenth=10, numbers=False, upper=False):
     """return list passwords
     Arguments:
