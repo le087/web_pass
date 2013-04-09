@@ -7,7 +7,7 @@ from forms import SetPassForm
 import genpassword, os, random
 
 
-def gen_passwords(dictionary_file, num=10, lenth=10, numbers=False, upper=False):
+def gen_passwords(dictionary_file, num=10, lenth=10, numbers=True, upper=True):
     """return list passwords
     Arguments:
     - `dictionary`: rules
@@ -33,6 +33,7 @@ def gen_passwords(dictionary_file, num=10, lenth=10, numbers=False, upper=False)
         count += 1
     return list_password
 
+    
 def main_page(request):
     """главная вьюха
     Arguments:
@@ -50,7 +51,7 @@ def main_page(request):
     else:
         passwords = gen_passwords(os.path.dirname(__file__) + '/dicts/italian')
         num_passwords = 10
-        radioform = SetPassForm({'num_pass':'10', 'lenth_pass':'10', 'language':'italian'})
+        radioform = SetPassForm({'num_pass':'10', 'lenth_pass':'10', 'language':'italian', 'upper_pass': True, 'string_replace_num': True})
     count = Counter()
     counter = count.get_counter(num_passwords)
     return render_to_response('index.html', {

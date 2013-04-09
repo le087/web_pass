@@ -24,29 +24,18 @@
 	      {{ radioform.as_table }}<br /><br />
 	      <input class="btn btn-info" type="submit" method="POST" name="generate" value="Сгенерировать пароли!" /><br /><br />	  
 	    </form>
-
+        <div class="span3">
+	      <table class="table">
+	        {% for i in passwords %}
+	        <tr>
+	          <td>{{ forloop.counter }}:</td><td>{{ i }}</td>
+	        </tr>
+	        {% endfor %}
+	      </table>
+        </div>
 	    <h4>Всего создано паролей: {{ counter }}</h4>
       </div>
       <div class="span8">
-	    <h4>Парочка паролей...</h4>
-        <div class="span3">
-	      <table class="table">
-	        {% for i in passwords %}
-	        <tr>
-	          <td>{{ forloop.counter }}:</td><td>{{ i }}</td>
-	        </tr>
-	        {% endfor %}
-	      </table>
-        </div>
-        <div class="span3">
-	      <table class="table">
-	        {% for i in passwords %}
-	        <tr>
-	          <td>{{ forloop.counter }}:</td><td>{{ i }}</td>
-	        </tr>
-	        {% endfor %}
-	      </table>
-        </div>
         <div class="span8">
 	      <h4>Немного информации о Вас:</h4>
 	      <table class="table">
