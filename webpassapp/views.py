@@ -53,8 +53,9 @@ def main_page(request):
         num_passwords = 10
         radioform = SetPassForm({'num_pass':'10', 'lenth_pass':'10', 'language':'italian', 'upper_pass': True, 'string_replace_num': True})
     count = Counter()
+    log = Log()
     counter = count.get_counter(num_passwords)
-    Log.save_comment(request.META['HTTP_USER_AGENT'], request.META['REMOTE_ADDR'])
+    log.save_log_note(request.META['HTTP_USER_AGENT'], request.META['REMOTE_ADDR'])
     return render_to_response('index.html', {
             'counter':counter,
             'passwords':passwords,
