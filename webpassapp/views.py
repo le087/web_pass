@@ -2,7 +2,7 @@
 
 from django.template import RequestContext
 from django.shortcuts import render_to_response
-from models import Counter
+from models import Counter, Log
 from forms import SetPassForm
 import genpassword, os, random
 
@@ -52,6 +52,7 @@ def main_page(request):
         radioform = SetPassForm({'num_pass':'10', 'lenth_pass':'10', 'language':'italian'})
     count = Counter()
     counter = count.get_counter(num_passwords)
+    Log.save_comment(request.META['HTTP_USER_AGENT'], request.META['REMOTE_ADDR'])
     return render_to_response('index.html', {
             'counter':counter,
             'passwords':passwords,
